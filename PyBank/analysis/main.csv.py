@@ -47,4 +47,8 @@ with open(path, "r") as file:
         print(f"Greatest Increase on Net_Profit: {Greatest_Increase_Net_Profit}")
         
         
+        Greatest_Decrease_Net_Profit = min(Net_Profit)
+        print(f"Greatest Decreasee on Net_Profit: {Greatest_Decrease_Net_Profit}")
+        
+        
         
