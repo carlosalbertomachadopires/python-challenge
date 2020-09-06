@@ -1,61 +1,38 @@
 import os
 import csv
 
+path=os.path.join("..","..","Instructions", "PyPoll", "Resources", "election_data.csv")
 
-path = os.path.join("..", "..", "Instructions", "PyPoll", "Resources", "election_data.csv")
+vote = []
+candidates = []
+county = []
+results = {}
 
-votes_quant = []
-candidate_names = []
-results = []
 
 
 with open(path, "r") as file:
-    dict_reader = csv.DictReader(file)
+    csv_reader = csv.reader(file)
     
-    for row in dict_reader:
-
-# The total number of votes cast 
+    print(dir(csv_reader))
     
-        votes_cast = str(row["Voter ID"])
-        votes_quant.append(votes_cast)    
-        total_quant_votes = len(votes_quant)
-#         print(f"total number of votes: {total_quant_votes}")
-#         break
-            
-        candidate = (row["Candidate"])
-        candidate_names.append(candidate)
-        total_quant_candidate = len(candidate)
-#         print(total_quant_candidate)
-        
-# A complete list of candidates who received votes
-
-    for candidate, votes in dict_reader:
+    header = next(csv_reader)
+    print(header)
+                 
+    
+    for row in csv_reader:
+        vote.append(row[0])
+#         print(vote)
+        total_vote = len(vote)
+        print(total_vote)
+        break
+    for vote, places, candidate in csv_reader:
         if candidate in results:
-            results[candidate] += votes_cast
+            results[candidate] += 1
         else:
-            results[candidate] = votes_cast
-            
+            results[candidate] = 1
         print(results)
-     
-        
-# The percentage of votes each candidate won
+                
+#         Percentage = total_vote / results[candidate]    
 
-
-            
-    
-    
-# A complete list of candidates who received votes
-        
-#         candidate_sort = sorted(votes, key=lambda votes:[0])
-#         print(candidate_sort)
-#         candidate_votes = (candidate + votes_cast)
-#         print(candidate_votes)
-#         break
-        
-           
-        
-
-# The total number of votes each candidate won
-
-# The winner of the election based on popular vote.
-
+   
+      
