@@ -13,6 +13,9 @@ Net_Profit = []
 with open(path, "r") as file:
     csv_reader = csv.reader(file)
     
+        
+        
+    
     header = next(csv_reader)
 #     print(header)
     
